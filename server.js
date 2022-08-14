@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParer = require("body-parser");
 const app = express();
 app.use(express.static('public'))
+app.use(bodyParer.json())
 
 
 
@@ -18,11 +19,14 @@ MongoClient.connect(connectString, (err, client) => {
 
   app.use(bodyParer.urlencoded({ extended: true }));
 
+ 
+
   app.get("/",async function (req, res) {
     // res.sendFile(__dirname + "/index.html");
     const cursor = await db.collection('quotes').find().toArray()
     console.log(cursor)
     res.render('index.ejs', {quotes: cursor})
+    
   });
 
   app.listen(3000, function () {
@@ -34,4 +38,22 @@ MongoClient.connect(connectString, (err, client) => {
    console.log(insertQuote)
    res.redirect('/')
   });
+
+  app.put('/quotes', (req, res) => {
+    const quoteCollection = quotesCollection.findOneAndUpdate(
+        {name: 'Yoda'}, 
+        {
+    
+            $set: {
+                name: req.body.name,
+                quote: req.body.quote
+              }
+        }, 
+        {
+            upsert: true
+        }
+      )
+      console.log(quoteCollection)
+  })
+
 });

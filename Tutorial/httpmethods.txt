@@ -1,0 +1,9 @@
+HTTP Methods
+
+Get: GET method requests a representation of the specified resource. Requests using GET should only retrieve data and should have no other effect
+
+Post: POST method requests that the server accept the data enclosed in the request as a new object/entity of the resource identified by the URL
+
+Put: PUT method requests that the server accept the data enclosed in the request as a modification to existing object identified by the URL. 
+
+Delete: DELETE method requests that the server delete the specified resource

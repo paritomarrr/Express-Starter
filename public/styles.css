@@ -1,0 +1,38 @@
+html {
+    font-size: 20px;
+   
+  }
+  
+  .quote {
+    margin-top: 0.5em;
+    text-decoration: none !important;
+
+  }
+  
+  .quote > span:first-child {
+    font-weight: bold
+  }
+  
+  .quote > span:first-child:after {
+    content:':'
+  }
+
+  * {
+    font-family: sans-serif;
+    text-align: center;
+  }
+
+  button {
+    padding: 15px;
+    background-color: rgb(17, 106, 179);
+    color: #fff;
+    border: none;
+  }
+
+  input {
+    padding: 15px 5px;
+  }
+
+  ul {
+    text-decoration: none !important;
+  }

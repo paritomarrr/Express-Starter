@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParer = require("body-parser");
 const app = express();
-
+app.use(express.static('public'))
 
 
 

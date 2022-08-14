@@ -8,7 +8,7 @@ var db
 // Remember to change YOUR_USERNAME and YOUR_PASSWORD to your username and password! 
 MongoClient.connect("mongodb+srv://pari:FADFYrwi7EF1RW1a@cluster0.c2taoab.mongodb.net/?retryWrites=true&w=majority", (err, database) => {
   if (err) return console.log(err)
-  db = database.db('star-wars-quotes')
+  db = database.db('CRUD')
   app.listen(process.env.PORT || 3000, () => {
     console.log('listening on 3000')
   })

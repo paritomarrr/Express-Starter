@@ -1,6 +1,10 @@
 const express = require("express");
 const bodyParer = require("body-parser");
 const app = express();
+
+
+
+
 const MongoClient = require("mongodb").MongoClient;
 
 var connectString =
@@ -14,8 +18,11 @@ MongoClient.connect(connectString, (err, client) => {
 
   app.use(bodyParer.urlencoded({ extended: true }));
 
-  app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/index.html");
+  app.get("/",async function (req, res) {
+    // res.sendFile(__dirname + "/index.html");
+    const cursor = await db.collection('quotes').find().toArray()
+    console.log(cursor)
+    res.render('index.ejs', {quotes: cursor})
   });
 
   app.listen(3000, function () {
